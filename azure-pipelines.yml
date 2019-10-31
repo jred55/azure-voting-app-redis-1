@@ -37,3 +37,31 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+- stage: hld_update
+  displayName: ACR to HLD Stage
+  dependsOn: Build
+  condition: succeeded('Build')
+  jobs:
+  - job: hld_update
+    displayName: HLD Update
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - bash: |
+        # Download build.sh
+        curl https://raw.githubusercontent.com/Microsoft/bedrock/master/gitops/azure-devops/build.sh > build.sh
+        chmod +x ./build.sh
+
+        curl https://raw.githubusercontent.com/Microsoft/bedrock/master/gitops/azure-devops/release.sh > release.sh
+        chmod +x ./release.sh
+
+        # Execute release.sh
+        . release.sh
+      displayName: Bash step
+      env:
+        ACCESS_TOKEN_SECRET: $(ACCESS_TOKEN)
+        COMMIT_MESSAGE: Update front end image tag to $(Build.BuildId)
+        SUBCOMPONENT: azure-vote
+        YAML_PATH: azureVoteFront.deployment.imageTag
+        YAML_PATH_VALUE: $(Build.BuildId)
+        REPO: https://github.com/jred55/azure-voting-app.git
