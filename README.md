@@ -4,8 +4,12 @@ If you would like to deploy the azure voting app using bedrock, follow the guide
 
 ## Create the source build pipeline
 
-The first step is to build a container image of this azure voting app and push it to Azure Container Registry. There's already a Dockerfile provided to you in this [path](https://github.com/samiyaakhtar/azure-voting-app-redis/blob/master/azure-vote/Dockerfile) that needs to be used by the continuous integration pipelines to create the docker build. 
+The first step is to build a container image of this azure voting app and push it to Azure Container Registry. 
+Go to Azure portal and provision a Azure Container Registry in the same resource group where you provisioned your cluster from Challenge 1.
 
+There's already a Dockerfile provided to you in this [path](https://github.com/samiyaakhtar/azure-voting-app-redis/blob/master/azure-vote/Dockerfile) that needs to be used by the continuous integration pipelines to create the docker build. 
+
+Before you start with Challenge 2 and 3, make sure you enabled multistage pipelines in your Azure Dev Ops. 
 1. Create a fork of the repository located [here](https://github.com/Azure-Samples/azure-voting-app-redis). 
 2. Click on `New pipeline` in your Azure DevOps Project under Pipelines
 3. Select your forked repository under the repositories section.
