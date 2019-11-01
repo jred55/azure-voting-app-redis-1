@@ -2,6 +2,9 @@
 
 If you would like to deploy the azure voting app using bedrock, follow the guide below. Follow the GitOps tutorial on this [page](https://github.com/microsoft/bedrock/tree/master/gitops/azure-devops) to understand the overall Bedrock pipelines infrastructure.
 
+The following diagram describes overview of the various challenges 
+  ![](./images/overview.png)
+You will be working with three repos for this exercise - code repo, HLD (high level definition) repo and manifest repo
 ## Create the source build pipeline (Challenge 2)
 
 The first step is to build a container image of this azure voting app and push it to Azure Container Registry. 
@@ -86,8 +89,9 @@ The Manifest generation pipeline needs to be triggered off any changes on the HL
     ![](./images/hld_variables.png)
 
     Make sure that the `MANIFEST_REPO` variable is set to your newly created repository for storing kubernetes manifests.
+6. You need to make changes to ACR url so that it points to your ACR 
 
-6. Run the pipeline once again and it should succeed. 
+7. Run the pipeline once again and it should succeed. 
 
 # Bedrock setup is complete
 
