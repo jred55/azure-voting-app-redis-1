@@ -2,7 +2,7 @@
 
 If you would like to deploy the azure voting app using bedrock, follow the guide below. Follow the GitOps tutorial on this [page](https://github.com/microsoft/bedrock/tree/master/gitops/azure-devops) to understand the overall Bedrock pipelines infrastructure.
 
-## Create the source build pipeline
+## Create the source build pipeline (Challenge 2)
 
 The first step is to build a container image of this azure voting app and push it to Azure Container Registry. 
 Go to Azure portal and provision a Azure Container Registry in the same resource group where you provisioned your cluster from Challenge 1.
@@ -63,14 +63,14 @@ Insert the following stage towards the end of the yaml file. This will perform t
         YAML_PATH_VALUE: $(Build.BuildId)
         REPO: https://github.com/<your user name>/azure-voting-app.git
 ```
-
+Create a personal access token for your GitHub account and save it someplace
 Add a Variable called `ACCESS_TOKEN` and enter your personal access token for GitHub, and make this variable a secret. 
 
 ![](./images/access_token.png)
 
 Click on `Save` button, it will prompt you to push the changes to the repository. Click commit and watch the logs for the running pipeline. You should be able to see a new commit in your HLD repository after the stage is complete. 
 
-## Create the manifest generation pipeline
+## Create the manifest generation pipeline (Challenge 3)
 
 Create a new empty repository in your GitHub, call it something like `azure-voting-manifest`
 
