@@ -89,7 +89,7 @@ The Manifest generation pipeline needs to be triggered off any changes on the HL
     ![](./images/hld_variables.png)
 
     Make sure that the `MANIFEST_REPO` variable is set to your newly created repository for storing kubernetes manifests.
-6. You need to make changes to ACR url so that it points to your ACR 
+6. You need to make changes to ACR url so that it points to your ACR. To do this go to your HLD repo and update the ACR in the following file azure-voting-app<or your HLD>/charts/azure-voting-app/values.yaml
 
 7. Run the pipeline once again and it should succeed. 
 
