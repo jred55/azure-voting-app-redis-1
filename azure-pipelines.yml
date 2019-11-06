@@ -82,6 +82,12 @@ stages:
 
         # Execute release.sh
         . release.sh
+        latest_commit=$(git rev-parse --short HEAD)
+        tag_name=$(tag)
+        VERSION_TO_DOWNLOAD=$(curl -s "https://api.github.com/repos/CatalystCode/spk/releases/latest" | grep "tag_name" | sed -E 's/.*"([^"]+)".*/\1/') 
+        echo "Downloading SPK version $VERSION_TO_DOWNLOAD" && wget "https://github.com/CatalystCode/spk/releases/download/$VERSION_TO_DOWNLOAD/spk-linux"
+        chmod +x ./spk-linux
+        ./spk-linux deployment create  -n $(ACCOUNT_NAME) -k $(ACCOUNT_KEY) -t $(TABLE_NAME) -p $(PARTITION_KEY)  --p2 $(Build.BuildId) --hld-commit-id $latest_commit --env $(Build.SourceBranchName) --image-tag $tag_name
       displayName: Bash step
       env:
         ACCESS_TOKEN_SECRET: $(ACCESS_TOKEN)
