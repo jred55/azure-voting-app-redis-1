@@ -12,7 +12,7 @@ Go to Azure portal and provision a Azure Container Registry in the same resource
 
 There's already a Dockerfile provided to you in this [path](https://github.com/samiyaakhtar/azure-voting-app-redis/blob/master/azure-vote/Dockerfile) that needs to be used by the continuous integration pipelines to create the docker build. 
 
-1. Before you start with Challenge 2 and 3, make sure you enabled multistage pipelines in your Azure Dev Ops. 
+1. Enable multistage pipelines in your Azure Dev Ops. 
 2. Create a fork of the repository located [here](https://github.com/Azure-Samples/azure-voting-app-redis). 
 3. Click on `New pipeline` in your Azure DevOps Project under Pipelines
 4. Select your forked repository under the repositories section.
