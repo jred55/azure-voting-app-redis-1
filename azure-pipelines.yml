@@ -10,14 +10,27 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '21e0cc0a-acd2-4c9d-93a0-b6fb65e6e954'
-  imageRepository: 'votingapp'
-  containerRegistry: 'jhansiacr2.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
-  tag: '$(Build.BuildId)'
-  
+  #dockerRegistryServiceConnection: '21e0cc0a-acd2-4c9d-93a0-b6fb65e6e954'
+  - name: dockerRegistryServiceConnection
+    value: '21e0cc0a-acd2-4c9d-93a0-b6fb65e6e954'
+  - name: imageRepository
+    value: 'votingapp'
+  #imageRepository: 'votingapp'
+  - name: containerRegistry
+    value: 'jhansiacr2.azurecr.io'
+  #containerRegistry: 'jhansiacr2.azurecr.io'
+  - name: dockerfilePath
+    value: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
+  #dockerfilePath: '$(Build.SourcesDirectory)/azure-vote/Dockerfile'
+  - name: tag
+    value: '$(Build.BuildId)'
+  #tag: '$(Build.BuildId)'
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  - name: vmImageName
+    value: 'ubuntu-latest'
+  #vmImageName: 'ubuntu-latest'
+
+  - group: JhansiVargroup
 
 stages:
 - stage: Build
