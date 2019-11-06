@@ -12,17 +12,17 @@ Go to Azure portal and provision a Azure Container Registry in the same resource
 
 There's already a Dockerfile provided to you in this [path](https://github.com/samiyaakhtar/azure-voting-app-redis/blob/master/azure-vote/Dockerfile) that needs to be used by the continuous integration pipelines to create the docker build. 
 
-Before you start with Challenge 2 and 3, make sure you enabled multistage pipelines in your Azure Dev Ops. 
-1. Create a fork of the repository located [here](https://github.com/Azure-Samples/azure-voting-app-redis). 
-2. Click on `New pipeline` in your Azure DevOps Project under Pipelines
-3. Select your forked repository under the repositories section.
-4. Next, it should show you a page with a list of pre-defined tasks. Select `Docker Build and push an image to Azure Container Registry`.
+1. Before you start with Challenge 2 and 3, make sure you enabled multistage pipelines in your Azure Dev Ops. 
+2. Create a fork of the repository located [here](https://github.com/Azure-Samples/azure-voting-app-redis). 
+3. Click on `New pipeline` in your Azure DevOps Project under Pipelines
+4. Select your forked repository under the repositories section.
+5. Next, it should show you a page with a list of pre-defined tasks. Select `Docker Build and push an image to Azure Container Registry`.
     ![](./images/select_docker.png)
-5. It should load all your available subscriptions. Select the appropriate subscription.
-6. Select an available container registry and enter an image name. 
+6. It should load all your available subscriptions. Select the appropriate subscription.
+7. Select an available container registry and enter an image name. 
     ![](./images/select_ACR.png)
-7. Click on `Validate and configure` and run the pipeline. 
-8. You should be able to see a new repository created under your ACR for this new image.
+8. Click on `Validate and configure` and run the pipeline. 
+9. You should be able to see a new repository created under your ACR for this new image.
 
 
 ## Create the image tag release pipeline
